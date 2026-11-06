@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/Project3HeadlampPlugin">
+    <file alias="Project3HeadlampPlugin.qml">qml/Project3HeadlampPlugin.qml</file>
+  </qresource>
+</RCC>

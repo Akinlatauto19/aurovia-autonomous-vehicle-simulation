@@ -1,0 +1,7 @@
+string command
+---
+bool success
+string status
+float32 speed
+string phase
+string message

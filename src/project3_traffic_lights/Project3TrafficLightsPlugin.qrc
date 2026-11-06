@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/Project3TrafficLightsPlugin">
+    <file alias="Project3TrafficLightsPlugin.qml">qml/Project3TrafficLightsPlugin.qml</file>
+  </qresource>
+</RCC>

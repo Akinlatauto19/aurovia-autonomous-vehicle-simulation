@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="project3_vehicle">
+
+  <!-- ====================================================== -->
+  <!-- VEHICLE DIMENSIONS                                     -->
+  <!-- ====================================================== -->
+
+  <xacro:property name="vehicle_length" value="4.20"/>
+  <xacro:property name="vehicle_width" value="1.80"/>
+  <xacro:property name="vehicle_height" value="1.50"/>
+
+  <xacro:property name="wheelbase" value="2.60"/>
+
+  <xacro:property name="front_track" value="1.55"/>
+  <xacro:property name="rear_track" value="1.55"/>
+
+  <xacro:property name="wheel_radius" value="0.325"/>
+  <xacro:property name="wheel_diameter" value="0.65"/>
+  <xacro:property name="wheel_width" value="0.22"/>
+
+  <xacro:property name="ground_clearance" value="0.15"/>
+
+  <!-- Chassis thickness -->
+  <xacro:property name="chassis_thickness" value="0.25"/>
+
+  <!-- Position calculations -->
+  <xacro:property name="front_x" value="${wheelbase / 2}"/>
+  <xacro:property name="rear_x" value="${-wheelbase / 2}"/>
+
+  <xacro:property name="front_y" value="${front_track / 2}"/>
+  <xacro:property name="rear_y" value="${rear_track / 2}"/>
+
+  <!-- Chassis center height -->
+  <xacro:property name="chassis_z"
+                  value="${ground_clearance + chassis_thickness / 2}"/>
+
+    <!-- ====================================================== -->
+  <!-- MATERIALS                                               -->
+  <!-- ====================================================== -->
+
+  <material name="body_blue">
+    <color rgba="0.05 0.25 0.65 1.0"/>
+  </material>
+
+  <material name="glass_grey">
+    <color rgba="0.35 0.35 0.35 1.0"/>
+  </material>
+
+  <material name="rubber_black">
+    <color rgba="0.02 0.02 0.02 1.0"/>
+  </material>
+
+  <material name="light_white">
+    <color rgba="0.95 0.95 0.85 1.0"/>
+  </material>
+
+  <material name="light_red">
+    <color rgba="0.75 0.02 0.02 1.0"/>
+  </material>
+
+  <material name="bumper_dark">
+    <color rgba="0.08 0.08 0.08 1.0"/>
+  </material>
+
+  <!-- ====================================================== -->
+  <!-- BASE LINK                                               -->
+  <!-- ====================================================== -->
+
+  <link name="base_link"/>
+
+
+  <!-- ====================================================== -->
+  <!-- CHASSIS                                                 -->
+  <!-- ====================================================== -->
+
+  <link name="chassis_link">
+    <!-- Visual removed: Audibot body.dae provides the exterior. -->
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="${vehicle_length}
+                   ${vehicle_width}
+                   ${chassis_thickness}"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="850.0"/>
+      <inertia
+        ixx="229.0"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="1215.0"
+        iyz="0.0"
+        izz="1215.0"/>
+    </inertial>
+
+  </link>
+
+
+  <!-- ====================================================== -->
+  <!-- BASE → CHASSIS                                         -->
+  <!-- ====================================================== -->
+
+  <joint name="base_to_chassis" type="fixed">
+
+    <parent link="base_link"/>
+    <child link="chassis_link"/>
+
+    <origin xyz="0 0 ${chassis_z}"/>
+
+  </joint>
+
+    <!-- ====================================================== -->
+  <!-- PASSENGER CAR BODY                                     -->
+  <!-- ====================================================== -->
+
+       <link name="body_link">
+    <visual>
+      <origin xyz="0.035 0 0.03" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://vehicle_description/meshes/audibot/body.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+    <!-- ====================================================== -->
+    <!-- LOWER BODY                                             -->
+    <!-- ====================================================== -->
+
+    <visual>
+      <origin xyz="0 0 0.58"/>
+      <geometry>
+        <box size="4.00 1.70 0.40"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Hood -->
+    <visual>
+      <origin xyz="1.35 0 0.82"/>
+      <geometry>
+        <box size="0.90 1.62 0.18"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Rear / trunk -->
+    <visual>
+      <origin xyz="-1.45 0 0.82"/>
+      <geometry>
+        <box size="0.70 1.62 0.18"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- ====================================================== -->
+    <!-- PASSENGER-CAR CABIN                                    -->
+    <!-- ====================================================== -->
+
+    <!-- Solid passenger-car roof -->
+    <visual>
+      <origin xyz="-0.18 0 1.50"/>
+      <geometry>
+        <box size="1.95 1.50 0.14"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Left upper roof rail -->
+    <visual>
+      <origin xyz="-0.18 0.73 1.36"/>
+      <geometry>
+        <box size="1.95 0.10 0.16"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Right upper roof rail -->
+    <visual>
+      <origin xyz="-0.18 -0.73 1.36"/>
+      <geometry>
+        <box size="1.95 0.10 0.16"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Left lower window belt -->
+    <visual>
+      <origin xyz="-0.18 0.73 0.94"/>
+      <geometry>
+        <box size="1.95 0.10 0.14"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Right lower window belt -->
+    <visual>
+      <origin xyz="-0.18 -0.73 0.94"/>
+      <geometry>
+        <box size="1.95 0.10 0.14"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Front cabin pillar / windshield surround -->
+    <visual>
+      <origin xyz="0.72 0 1.15" rpy="0 0.28 0"/>
+      <geometry>
+        <box size="0.14 1.48 0.62"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- Rear cabin pillar / windshield surround -->
+    <visual>
+      <origin xyz="-1.08 0 1.15" rpy="0 -0.22 0"/>
+      <geometry>
+        <box size="0.14 1.48 0.62"/>
+      </geometry>
+      <material name="body_blue"/>
+    </visual>
+
+    <!-- ====================================================== -->
+    <!-- BUMPERS                                                -->
+    <!-- ====================================================== -->
+
+    <visual>
+      <origin xyz="2.05 0 0.48"/>
+      <geometry>
+        <box size="0.12 1.74 0.18"/>
+      </geometry>
+      <material name="bumper_dark"/>
+    </visual>
+
+    <visual>
+      <origin xyz="-2.05 0 0.48"/>
+      <geometry>
+        <box size="0.12 1.74 0.18"/>
+      </geometry>
+      <material name="bumper_dark"/>
+    </visual>
+
+
+    <!-- ====================================================== -->
+    <!-- SIDE SKIRTS                                            -->
+    <!-- ====================================================== -->
+
+    <visual>
+      <origin xyz="0 0.86 0.40"/>
+      <geometry>
+        <box size="3.60 0.08 0.16"/>
+      </geometry>
+      <material name="bumper_dark"/>
+    </visual>
+
+    <visual>
+      <origin xyz="0 -0.86 0.40"/>
+      <geometry>
+        <box size="3.60 0.08 0.16"/>
+      </geometry>
+      <material name="bumper_dark"/>
+    </visual>
+
+
+    <!-- ====================================================== -->
+    <!-- FRONT WINDSHIELD                                       -->
+    <!-- ====================================================== -->
+
+
+
+
+    <!-- ====================================================== -->
+    <!-- REAR WINDSHIELD                                        -->
+    <!-- ====================================================== -->
+
+
+
+
+    <!-- ====================================================== -->
+    <!-- LEFT SIDE WINDOWS                                      -->
+    <!-- ====================================================== -->
+
+    <!-- Front left window -->
+
+
+    <!-- Rear left window -->
+
+
+
+    <!-- ====================================================== -->
+    <!-- RIGHT SIDE WINDOWS                                     -->
+    <!-- ====================================================== -->
+
+    <!-- Front right window -->
+
+
+    <!-- Rear right window -->
+
+
+
+      <!-- ====================================================== -->
+     <!-- SIDE MIRRORS                                           -->
+     <!-- ====================================================== -->
+
+<!-- Left mirror housing -->
+<visual>
+  <origin xyz="0.62 0.80 1.08"/>
+  <geometry>
+    <box size="0.18 0.12 0.14"/>
+  </geometry>
+  <material name="bumper_dark"/>
+</visual>
+
+<!-- Left mirror glass -->
+
+
+<!-- Right mirror housing -->
+<visual>
+  <origin xyz="0.62 -0.80 1.08"/>
+  <geometry>
+    <box size="0.18 0.12 0.14"/>
+  </geometry>
+  <material name="bumper_dark"/>
+</visual>
+
+<!-- Right mirror glass -->
+
+
+    <!-- ====================================================== -->
+    <!-- FRONT HEADLAMPS                                        -->
+    <!-- ====================================================== -->
+
+    <!-- Left headlamp -->
+
+
+    <!-- Right headlamp -->
+
+
+
+    <!-- ====================================================== -->
+    <!-- REAR LIGHTS                                            -->
+    <!-- ====================================================== -->
+
+    <!-- Left rear light -->
+
+
+    <!-- Right rear light -->
+
+
+
+
+
+  <!-- ====================================================== -->
+  <!-- BODY → BASE                                             -->
+  <!-- ====================================================== -->
+
+
+
+  <!-- ====================================================== -->
+  <!-- GLASS COMPONENTS                                      -->
+  <!-- ====================================================== -->
+
+  <!-- ====================================================== -->
+  <!-- LIGHTING COMPONENTS                                    -->
+  <!-- ====================================================== -->
+
+  <!-- ====================================================== -->
+  <!-- REAR LIGHTING COMPONENT                                -->
+  <!-- ====================================================== -->
+
+  <joint name="base_to_body" type="fixed">
+    <parent link="base_link"/>
+    <child link="body_link"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <!-- ====================================================== -->
+  <!-- FRONT LEFT STEERING KNUCKLE                             -->
+  <!-- ====================================================== -->
+
+  <link name="front_left_steering"/>
+
+  <joint name="front_left_steering_joint"
+         type="revolute">
+
+    <parent link="base_link"/>
+    <child link="front_left_steering"/>
+
+    <origin xyz="${front_x} ${front_y} ${wheel_radius}"/>
+
+    <!-- Steering axis: vertical -->
+    <axis xyz="0 0 1"/>
+
+    <limit
+      lower="-0.6"
+      upper="0.6"
+      effort="1000"
+      velocity="2.0"/>
+
+  </joint>
+
+
+  <!-- ====================================================== -->
+  <!-- FRONT LEFT WHEEL                                       -->
+  <!-- ====================================================== -->
+
+  <link name="front_left_wheel">
+
+    <visual>
+      <origin xyz="0 0 0.033314" rpy="0 0 3.1415926535"/>
+      <geometry>
+        <mesh filename="package://vehicle_description/meshes/audibot/wheel.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+
+      <origin xyz="0 0 0"
+              rpy="${pi/2} 0 0"/>
+
+      <geometry>
+        <cylinder
+          radius="${wheel_radius}"
+          length="${wheel_width}"/>
+      </geometry>
+
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="18.0"/>
+      <inertia
+        ixx="0.62"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.95"
+        iyz="0.0"
+        izz="0.62"/>
+    </inertial>
+
+  </link>
+
+
+  <joint name="front_left_wheel_joint"
+         type="continuous">
+
+    <parent link="front_left_steering"/>
+    <child link="front_left_wheel"/>
+
+    <origin xyz="0 0 0"/>
+
+    <!-- Wheel axle -->
+    <axis xyz="0 1 0"/>
+
+  </joint>
+
+
+  <!-- ====================================================== -->
+  <!-- FRONT RIGHT STEERING KNUCKLE                            -->
+  <!-- ====================================================== -->
+
+  <link name="front_right_steering"/>
+
+  <joint name="front_right_steering_joint"
+         type="revolute">
+
+    <parent link="base_link"/>
+    <child link="front_right_steering"/>
+
+    <origin xyz="${front_x} ${-front_y} ${wheel_radius}"/>
+
+    <!-- Steering axis: vertical -->
+    <axis xyz="0 0 1"/>
+
+    <limit
+      lower="-0.6"
+      upper="0.6"
+      effort="1000"
+      velocity="2.0"/>
+
+  </joint>
+
+
+  <!-- ====================================================== -->
+  <!-- FRONT RIGHT WHEEL                                      -->
+  <!-- ====================================================== -->
+
+  <link name="front_right_wheel">
+
+    <visual>
+      <origin xyz="0 0 0.033314" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://vehicle_description/meshes/audibot/wheel.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+
+      <origin xyz="0 0 0"
+              rpy="${pi/2} 0 0"/>
+
+      <geometry>
+        <cylinder
+          radius="${wheel_radius}"
+          length="${wheel_width}"/>
+      </geometry>
+
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="18.0"/>
+      <inertia
+        ixx="0.62"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.95"
+        iyz="0.0"
+        izz="0.62"/>
+    </inertial>
+
+  </link>
+
+
+  <joint name="front_right_wheel_joint"
+         type="continuous">
+
+    <parent link="front_right_steering"/>
+    <child link="front_right_wheel"/>
+
+    <origin xyz="0 0 0"/>
+
+    <axis xyz="0 1 0"/>
+
+  </joint>
+
+
+  <!-- ====================================================== -->
+  <!-- REAR LEFT WHEEL                                        -->
+  <!-- ====================================================== -->
+
+  <link name="rear_left_wheel">
+
+    <visual>
+      <origin xyz="0 0 0.033314" rpy="0 0 3.1415926535"/>
+      <geometry>
+        <mesh filename="package://vehicle_description/meshes/audibot/wheel.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+
+      <origin xyz="0 0 0"
+              rpy="${pi/2} 0 0"/>
+
+      <geometry>
+        <cylinder
+          radius="${wheel_radius}"
+          length="${wheel_width}"/>
+      </geometry>
+
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="18.0"/>
+      <inertia
+        ixx="0.62"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.95"
+        iyz="0.0"
+        izz="0.62"/>
+    </inertial>
+
+  </link>
+
+
+  <joint name="rear_left_wheel_joint"
+         type="continuous">
+
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+
+    <origin xyz="${rear_x} ${rear_y} ${wheel_radius}"/>
+
+    <axis xyz="0 1 0"/>
+
+  </joint>
+
+
+  <!-- ====================================================== -->
+  <!-- REAR RIGHT WHEEL                                       -->
+  <!-- ====================================================== -->
+
+  <link name="rear_right_wheel">
+
+    <visual>
+      <origin xyz="0 0 0.033314" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://vehicle_description/meshes/audibot/wheel.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+
+      <origin xyz="0 0 0"
+              rpy="${pi/2} 0 0"/>
+
+      <geometry>
+        <cylinder
+          radius="${wheel_radius}"
+          length="${wheel_width}"/>
+      </geometry>
+
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="18.0"/>
+      <inertia
+        ixx="0.62"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.95"
+        iyz="0.0"
+        izz="0.62"/>
+    </inertial>
+
+  </link>
+
+
+  <joint name="rear_right_wheel_joint"
+         type="continuous">
+
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+
+    <origin xyz="${rear_x} ${-rear_y} ${wheel_radius}"/>
+
+    <axis xyz="0 1 0"/>
+
+  </joint>
+
+</robot>

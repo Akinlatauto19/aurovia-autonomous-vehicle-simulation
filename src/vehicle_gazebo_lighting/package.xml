@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>vehicle_gazebo_lighting</name>
+  <version>0.0.1</version>
+  <description>Custom Gazebo plugins for AUROVIA vehicle headlamps, city day/night lighting and camera lighting.</description>
+
+  <maintainer email="akinkunmiakindolapo@gmail.com">Akinkunmi Abdullateef Akindolapo</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>gz-gui</depend>
+  <depend>gz-rendering</depend>
+  <depend>gz-transport</depend>
+  <depend>gz-msgs</depend>
+  <depend>gz-plugin</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

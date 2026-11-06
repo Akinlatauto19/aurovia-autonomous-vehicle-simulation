@@ -1,0 +1,58 @@
+# ROS 2 / colcon generated files
+build/
+install/
+log/
+
+# Local development backups
+backups/
+zone8_work/
+*.backup
+*.backup_*
+*.zone1_backup
+*.bak
+*~
+
+# Historical and experimental backups inside source packages
+*.before_*
+*.before-*
+*.experimental_*
+*.backup-*
+*.before-*
+*.bak_*
+*_before_*
+*_experimental_*
+
+
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local generated installation records
+symlink_install_manifest.txt
+# Local README generation files and backups
+README.md.backup-*
+aurovia_readme_generator.py
+aurovia_readme_payload.txt
+
+# Superseded top-level simulation world
+/worlds/
+
+# Locally generated TF frame snapshots
+/frames_*.gv
+/frames_*.pdf
