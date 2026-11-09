@@ -41,6 +41,11 @@
         <param name="use_sim_time" value="true" />
     </node>
 
+    <node pkg="vehicle_system" exec="steering_controller"
+          name="steering_controller" output="screen">
+        <param name="use_sim_time" value="true" />
+    </node>
+
     <node pkg="vehicle_system" exec="drive_controller"
           name="drive_controller" output="screen">
         <param name="use_sim_time" value="true" />
