@@ -51,6 +51,18 @@
         <param name="use_sim_time" value="true" />
     </node>
 
+    <!-- AUROVIA Headlamp System -->
+    <node pkg="vehicle_system" exec="light_sensor"
+          name="light_sensor" output="screen">
+        <param name="use_sim_time" value="true" />
+        <param name="light_level" value="100.0" />
+    </node>
+
+    <node pkg="vehicle_system" exec="headlamp_controller"
+          name="headlamp_controller" output="screen">
+        <param name="use_sim_time" value="true" />
+    </node>
+
 
     <node pkg="vehicle_system" exec="lidar_processor"
           name="lidar_processor" output="screen">
