@@ -202,6 +202,7 @@ custom Gazebo plugin paths:
 Start the simulation with:
 
     ros2 launch audibot_gazebo project3_audibot.launch.xml
+```
 
 For the complete setup procedure, launch instructions,
 visualisation tools, ROS 2 interfaces and troubleshooting
