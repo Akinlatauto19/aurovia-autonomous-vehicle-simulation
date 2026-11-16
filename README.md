@@ -217,7 +217,7 @@ guidance, see the AUROVIA User Guide:
 
 For a more detailed account of AUROVIA's design, implementation and engineering development, please refer to the full engineering project report.
 
-📘 **[Read the AUROVIA Engineering Project Report (PDF)](AUROVIA_Engineering_Project_Report.pdf)**
+📘 [Read the AUROVIA Engineering Project Report (PDF)](./AUROVIA_Engineering_Project_Report.pdf)
 
 ## Testing and validation
 
