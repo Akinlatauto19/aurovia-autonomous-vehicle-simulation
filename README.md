@@ -213,6 +213,12 @@ guidance, see the AUROVIA User Guide:
 > the development workspace. A fresh installation on a separate
 > system has not yet been independently validated.
 
+## Engineering Project Report
+
+For a more detailed account of AUROVIA's design, implementation and engineering development, please refer to the full engineering project report.
+
+📘 **[Read the AUROVIA Engineering Project Report (PDF)](AUROVIA_Engineering_Project_Report.pdf)**
+
 ## Testing and validation
 
 The following capabilities have been implemented and exercised in simulation:
