@@ -202,6 +202,7 @@ custom Gazebo plugin paths:
 Start the simulation with:
 
     ros2 launch audibot_gazebo project3_audibot.launch.xml
+```
 
 For the complete setup procedure, launch instructions,
 visualisation tools, ROS 2 interfaces and troubleshooting
@@ -212,6 +213,12 @@ guidance, see the AUROVIA User Guide:
 > **Note:** The build and launch procedure has been verified in
 > the development workspace. A fresh installation on a separate
 > system has not yet been independently validated.
+
+## Engineering Project Report
+
+For a more detailed account of AUROVIA's design, implementation and engineering development, please refer to the full engineering project report.
+
+📘 [Read the AUROVIA Engineering Project Report (PDF)](./AUROVIA_Engineering_Project_Report.pdf)
 
 ## Testing and validation
 
