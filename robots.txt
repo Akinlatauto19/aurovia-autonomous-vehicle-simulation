@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akinlatauto19.github.io/aurovia-autonomous-vehicle-simulation/sitemap.xml
