@@ -297,6 +297,27 @@ section {
     line-height: 1.8;
 }
 
+.feature-read-more {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.feature-read-more:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.feature-read-more span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
 /* GALLERY */
 
 .gallery-section {
@@ -622,25 +643,39 @@ footer p {
         <small>ABOUT THE PROJECT</small>
         <h2>Engineering Intelligent Mobility</h2>
         <p>
-            A robotics and autonomous vehicle engineering project
-            bringing together vehicle dynamics, perception,
-            navigation and intelligent urban systems.
+            An autonomous vehicle engineering project integrating
+            robotics, vehicle dynamics, sensor systems, navigation
+            and intelligent urban infrastructure.
         </p>
     </div>
 
     <div class="overview-content">
         <p>
-            AUROVIA is an autonomous vehicle simulation project
-            developed using ROS 2 and Gazebo. It provides a custom
-            urban environment in which vehicle control, navigation,
-            sensor integration and smart infrastructure can be
-            developed and evaluated.
+            AUROVIA (Autonomous Vehicle Simulation in a Smart Urban
+            Environment) is a robotics and autonomous mobility project
+            developed using ROS 2 and Gazebo. It combines a simulated
+            Ackermann-steered vehicle with a custom-designed urban
+            environment to provide a platform for developing,
+            integrating and evaluating autonomous vehicle systems.
         </p>
 
         <p>
-            The project brings together an Ackermann-steered vehicle,
-            a structured urban road network, environmental sensors,
-            traffic infrastructure and autonomous driving functions.
+            The simulation incorporates vehicle motion control,
+            steering, acceleration, braking and odometry within a
+            ROS 2-based system architecture. Environmental sensing
+            is supported by integrated LiDAR, camera, IMU and GNSS
+            sensors, providing the foundation for vehicle perception
+            and navigation.
+        </p>
+
+        <p>
+            AUROVIA also explores autonomous movement through a
+            structured urban road network using route planning and
+            waypoint following. Its smart-city environment includes
+            intersections, flyover infrastructure, traffic-light
+            systems and dynamic day-and-night lighting, bringing
+            vehicle engineering and urban infrastructure together
+            in one simulation platform.
         </p>
     </div>
 
@@ -664,59 +699,43 @@ footer p {
         <article class="feature-card">
             <div class="feature-icon">01</div>
             <h3>Ackermann Vehicle Control</h3>
-            <p>
-                Vehicle motion, steering, acceleration, braking
-                and manual control using an Ackermann steering
-                configuration.
-            </p>
+            <p>Discover the vehicle model, Ackermann steering geometry and ROS 2 control implementation.</p>
+            <a class="feature-read-more" href="docs/chapters/01-ackermann-vehicle-control.pdf">READ MORE <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="feature-card">
             <div class="feature-icon">02</div>
             <h3>Multi-Sensor Perception</h3>
-            <p>
-                LiDAR, camera, IMU and GNSS sensor integration
-                for environmental awareness and vehicle data
-                monitoring.
-            </p>
+            <p>Explore the integration of LiDAR, camera, IMU and GNSS within the vehicle system.</p>
+            <a class="feature-read-more" href="docs/chapters/02-multi-sensor-perception.pdf">READ MORE <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="feature-card">
             <div class="feature-icon">03</div>
             <h3>Autonomous Navigation</h3>
-            <p>
-                Road-network navigation, waypoint following
-                and autonomous vehicle movement through the
-                simulated city.
-            </p>
+            <p>See how odometry feedback and destination-based control guide vehicle movement.</p>
+            <a class="feature-read-more" href="docs/chapters/03-autonomous-navigation.pdf">READ MORE <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="feature-card">
             <div class="feature-icon">04</div>
             <h3>Traffic-Light Awareness</h3>
-            <p>
-                Traffic-light-aware driving with signal-state
-                handling and stopping behaviour.
-            </p>
+            <p>Explore traffic-light infrastructure, signal-state handling and stopping logic.</p>
+            <a class="feature-read-more" href="docs/chapters/04-traffic-light-awareness.pdf">READ MORE <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="feature-card">
             <div class="feature-icon">05</div>
             <h3>Obstacle Awareness</h3>
-            <p>
-                LiDAR-based obstacle detection, distance
-                assessment and navigation response.
-            </p>
+            <p>Learn how LiDAR data supports proximity monitoring and obstacle assessment.</p>
+            <a class="feature-read-more" href="docs/chapters/05-obstacle-awareness.pdf">READ MORE <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="feature-card">
             <div class="feature-icon">06</div>
             <h3>Smart Urban Environment</h3>
-            <p>
-                A custom simulated city with road networks,
-                intersections, flyovers, traffic infrastructure
-                and dynamic day/night lighting.
-            </p>
+            <p>Explore AUROVIA's urban road network, intersections, flyover and infrastructure.</p>
+            <a class="feature-read-more" href="docs/chapters/06-smart-urban-environment.pdf">READ MORE <span aria-hidden="true">→</span></a>
         </article>
 
     </div>
