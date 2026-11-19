@@ -71,10 +71,7 @@ The demonstration below showcases the day-to-night environmental transition with
 
 ### Day and Night Environment Transition
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/96e74c85-a3bb-466c-972a-2ebae10a6612" width="100%" controls>
-  </video>
-</p>
+https://github.com/user-attachments/assets/96e74c85-a3bb-466c-972a-2ebae10a6612
 
 ## Autonomous navigation and road network
 
