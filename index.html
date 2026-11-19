@@ -375,9 +375,69 @@ section {
     line-height: 1.7;
 }
 
+.video-gallery {
+    margin-top: 75px;
+}
+
 .technical-gallery {
     margin-top: 75px;
 }
+
+/* AUROVIA VIDEO DEMONSTRATIONS */
+
+.video-section {
+    background: linear-gradient(180deg, #091c32, #061426);
+    border-bottom: 1px solid rgba(0,217,255,0.12);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.video-card {
+    overflow: hidden;
+    background: #10243a;
+    border: 1px solid rgba(0,217,255,0.2);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 28px rgba(0,217,255,0.15);
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+    background: #000;
+}
+
+.video-caption {
+    padding: 20px;
+}
+
+.video-caption h3 {
+    color: var(--cyan);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.video-caption p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* IMAGE VIEWER */
 
@@ -757,7 +817,35 @@ footer p {
 
     <div class="gallery-grid">
 
+
+
+
+
+
+
         <article class="gallery-card">
+            <img src="docs/images/aurovia-vehicle-urban-road-view.png"
+                 alt="AUROVIA vehicle in the simulated urban road environment"
+                 loading="lazy" onclick="openImage(this)">
+            <div class="gallery-caption">
+                <h3>Vehicle in AUROVIA Urban Road Environment</h3>
+                <p>The vehicle positioned within the simulated city, showing
+                   the curved roadway and surrounding infrastructure.</p>
+            </div>
+        </article>
+
+        <article class="gallery-card">
+            <img src="docs/images/aurovia-lidar-sensor-visualisation.png"
+                 alt="LiDAR sensor visualisation in Gazebo"
+                 loading="lazy" onclick="openImage(this)">
+            <div class="gallery-caption">
+                <h3>LiDAR Sensor Visualisation in Gazebo</h3>
+                <p>Visual representation of the vehicle's LiDAR sensor
+                   output within the Gazebo simulation environment.</p>
+            </div>
+        </article>
+
+<article class="gallery-card">
             <img src="docs/images/aurovia-city-entrance.png"
                  alt="AUROVIA city entrance"
                  loading="lazy" onclick="openImage(this)">
@@ -767,7 +855,7 @@ footer p {
             </div>
         </article>
 
-        <article class="gallery-card">
+<article class="gallery-card">
             <img src="docs/images/aurovia_daytime_city_view.png"
                  alt="AUROVIA daytime city"
                  loading="lazy" onclick="openImage(this)">
@@ -777,7 +865,7 @@ footer p {
             </div>
         </article>
 
-        <article class="gallery-card">
+<article class="gallery-card">
             <img src="docs/images/aurovia_nighttime_city_view.png"
                  alt="AUROVIA nighttime city"
                  loading="lazy" onclick="openImage(this)">
@@ -787,36 +875,55 @@ footer p {
             </div>
         </article>
 
-        <article class="gallery-card">
-            <img src="docs/images/aurovia_flyover_intersection_detail_v2.png"
-                 alt="AUROVIA flyover intersection"
-                 loading="lazy" onclick="openImage(this)">
-            <div class="gallery-caption">
-                <h3>Flyover and Road Infrastructure</h3>
-                <p>Detailed road connections and elevated urban infrastructure.</p>
-            </div>
-        </article>
 
-        <article class="gallery-card">
-            <img src="docs/images/aurovia_full_city_layout.png"
-                 alt="AUROVIA full city layout"
-                 loading="lazy" onclick="openImage(this)">
-            <div class="gallery-caption">
-                <h3>AUROVIA City Layout</h3>
-                <p>An overview of the custom-designed simulated city.</p>
-            </div>
-        </article>
 
-        <article class="gallery-card">
-            <img src="docs/images/aurovia_overall_city_map_v2.png"
-                 alt="AUROVIA overall city map"
-                 loading="lazy" onclick="openImage(this)">
-            <div class="gallery-caption">
-                <h3>Complete Urban Road Network</h3>
-                <p>The road network supporting autonomous navigation.</p>
-            </div>
-        </article>
 
+
+
+
+    </div>
+
+    <!-- SIMULATION VIDEO DEMONSTRATIONS -->
+    <div class="video-gallery">
+
+        <div class="section-title">
+            <small>AUROVIA IN MOTION</small>
+            <h2>Video Demonstrations</h2>
+            <p>
+                Watch the vehicle operating within the simulated urban
+                environment and observe the transition between day and night.
+            </p>
+        </div>
+
+        <div class="video-grid">
+
+            <article class="video-card">
+                <video controls preload="metadata" playsinline>
+                    <source src="docs/aurovia-daytime-driving.mp4"
+                            type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">
+                    <h3>Autonomous Driving – Daytime Demonstration</h3>
+                    <p>The AUROVIA vehicle moving through the simulated
+                       urban road network.</p>
+                </div>
+            </article>
+
+            <article class="video-card">
+                <video controls preload="metadata" playsinline>
+                    <source src="docs/aurovia-day-night-transition.mp4"
+                            type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">
+                    <h3>Day-to-Night Environment Transition</h3>
+                    <p>Vehicle movement during the transition from daytime
+                       to nighttime lighting conditions.</p>
+                </div>
+            </article>
+
+        </div>
     </div>
 
     <div class="technical-gallery">
@@ -831,6 +938,48 @@ footer p {
         </div>
 
         <div class="gallery-grid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <article class="gallery-card">
+            <img src="docs/images/aurovia_flyover_intersection_detail_v2.png"
+                 alt="AUROVIA flyover intersection"
+                 loading="lazy" onclick="openImage(this)">
+            <div class="gallery-caption">
+                <h3>Flyover and Road Infrastructure</h3>
+                <p>Detailed road connections and elevated urban infrastructure.</p>
+            </div>
+        </article>
+
+<article class="gallery-card">
+            <img src="docs/images/aurovia_full_city_layout.png"
+                 alt="AUROVIA full city layout"
+                 loading="lazy" onclick="openImage(this)">
+            <div class="gallery-caption">
+                <h3>AUROVIA City Layout</h3>
+                <p>An overview of the custom-designed simulated city.</p>
+            </div>
+        </article>
+
+<article class="gallery-card">
+            <img src="docs/images/aurovia_overall_city_map_v2.png"
+                 alt="AUROVIA overall city map"
+                 loading="lazy" onclick="openImage(this)">
+            <div class="gallery-caption">
+                <h3>Complete Urban Road Network</h3>
+                <p>The road network supporting autonomous navigation.</p>
+            </div>
+        </article>
 
             <article class="gallery-card">
                 <img src="docs/images/AUROVIA_System_Architecture.png"
