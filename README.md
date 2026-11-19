@@ -61,6 +61,21 @@ The simulated environment is organised into eight zones, each adding a different
 | **7 — Flyover** | East–west flyover with deck and underdeck lighting. |
 | **8 — Flyover access roads** | Two curved access roads connecting the open test area to the east and west flyover ramps. |
 
+---
+
+## Simulation Demonstration
+
+AUROVIA features a dynamic urban environment with a custom lighting system that supports transitions between daytime and nighttime conditions.
+
+The demonstration below showcases the day-to-night environmental transition within the AUROVIA city, highlighting the integration of Gazebo lighting plugins, urban streetlights, vehicle headlamps and the simulated urban environment.
+
+### Day and Night Environment Transition
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/96e74c85-a3bb-466c-972a-2ebae10a6612" width="100%" controls>
+  </video>
+</p>
+
 ## Autonomous navigation and road network
 
 AUROVIA includes a generated road-network representation to support route planning and road-centreline following.
