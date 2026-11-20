@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Highlights | AUROVIA</title>
+<meta name="description" content="Explore the key achievements and simulation results of AUROVIA, an autonomous vehicle simulation developed using ROS 2 and Gazebo.">
+<meta name="theme-color" content="#061426">
+<link rel="canonical" href="https://akinlatauto19.github.io/aurovia-autonomous-vehicle-simulation/project-highlights.html">
+<style>
+
+:root {
+    --navy: #061426;
+    --navy-light: #0b2036;
+    --card: #102943;
+    --cyan: #00d9ff;
+    --white: #f5f9ff;
+    --muted: #b9c8d9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+/* NAVIGATION */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    border-bottom: 1px solid rgba(0,217,255,0.2);
+    background: rgba(4,17,33,0.65);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 9% 100px;
+    position: relative;
+    background:
+        linear-gradient(90deg,
+        rgba(3,14,29,0.88) 0%,
+        rgba(3,14,29,0.62) 42%,
+        rgba(3,14,29,0.12) 100%),
+        linear-gradient(0deg,
+        rgba(3,14,29,0.38),
+        transparent 45%),
+        url("docs/images/aurovia-vehicle-urban-road-view.png");
+    background-size: cover, cover, cover;
+    background-position: center, center, center 20%;
+    background-repeat: no-repeat;
+    background-color: var(--navy);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+.hero-content {
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--cyan);
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+}
+
+.hero h2 {
+    font-size: clamp(20px, 3vw, 27px);
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 22px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 580px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--cyan);
+    color: #041426;
+}
+
+.btn-outline {
+    border: 1px solid var(--cyan);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(0,217,255,0.35);
+}
+
+/* TECHNOLOGY STRIP */
+
+.tech-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    padding: 25px 5%;
+    background: #091c32;
+    border-top: 1px solid rgba(0,217,255,0.15);
+    border-bottom: 1px solid rgba(0,217,255,0.15);
+}
+
+.tech-strip span {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.tech-strip strong {
+    color: var(--cyan);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 85px 9%;
+}
+
+.section-title {
+    text-align: center;
+    margin: 0 auto 48px;
+    max-width: 780px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: clamp(27px, 4vw, 36px);
+    margin-top: 12px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* OVERVIEW */
+
+.overview-section {
+    background: var(--navy);
+}
+
+.overview-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.overview-content p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+/* FEATURE CARDS */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    padding: 30px 25px;
+    background: linear-gradient(145deg, #102943, #08182a);
+    border: 1px solid rgba(0,217,255,0.17);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 30px rgba(0,217,255,0.10);
+}
+
+.feature-icon {
+    color: var(--cyan);
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: var(--cyan);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.feature-read-more {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.feature-read-more:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.feature-read-more span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* GALLERY */
+
+.gallery-section {
+    background: linear-gradient(180deg, #061426, #091c32);
+    border-top: 1px solid rgba(0,217,255,0.12);
+    border-bottom: 1px solid rgba(0,217,255,0.12);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.gallery-card {
+    overflow: hidden;
+    background: #10243a;
+    border: 1px solid rgba(0,217,255,0.2);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 28px rgba(0,217,255,0.15);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: 0.4s;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.035);
+}
+
+.gallery-caption {
+    padding: 18px;
+}
+
+.gallery-caption h3 {
+    color: var(--cyan);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.gallery-caption p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.video-gallery {
+    margin-top: 75px;
+}
+
+.technical-gallery {
+    margin-top: 75px;
+}
+
+/* AUROVIA VIDEO DEMONSTRATIONS */
+
+.video-section {
+    background: linear-gradient(180deg, #091c32, #061426);
+    border-bottom: 1px solid rgba(0,217,255,0.12);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.video-card {
+    overflow: hidden;
+    background: #10243a;
+    border: 1px solid rgba(0,217,255,0.2);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 28px rgba(0,217,255,0.15);
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+    background: #000;
+}
+
+.video-caption {
+    padding: 20px;
+}
+
+.video-caption h3 {
+    color: var(--cyan);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.video-caption p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* IMAGE VIEWER */
+
+.image-viewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(2,9,19,0.96);
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.image-viewer.active {
+    display: flex;
+}
+
+.image-viewer img {
+    max-width: 92%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 1px solid var(--cyan);
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,217,255,0.15);
+}
+
+.image-viewer button {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+/* RESOURCES */
+
+.resources-section {
+    background: var(--navy);
+}
+
+.resources-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 38px;
+    text-align: center;
+    background: linear-gradient(145deg, #102943, #08182a);
+    border: 1px solid rgba(0,217,255,0.2);
+    border-radius: 8px;
+}
+
+.resources-box p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 38px 15px;
+    background: #040e1b;
+    border-top: 1px solid rgba(0,217,255,0.2);
+}
+
+footer strong {
+    color: var(--cyan);
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media(max-width: 900px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    .features,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 165px 7% 85px;
+        background-position: center;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .features,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+
+    .resources-box {
+        padding: 25px 18px;
+    }
+
+    .image-viewer {
+        padding: 15px;
+    }
+
+    .image-viewer img {
+        max-width: 100%;
+    }
+
+    .image-viewer button {
+        top: 8px;
+        right: 15px;
+    }
+}
+
+
+/* Project Highlights additions */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+
+/* ACHIEVEMENT CARD ICONS */
+
+.achievement-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    color: var(--cyan);
+}
+
+.achievement-icon svg {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* COLOUR ACCENTS FOR ACHIEVEMENT ICONS */
+
+.highlights-grid article:nth-child(1) .achievement-icon path:nth-of-type(2) {
+    stroke: #ffc45c;
+}
+.highlights-grid article:nth-child(2) .achievement-icon circle:nth-of-type(2) {
+    stroke: #55baff;
+}
+.highlights-grid article:nth-child(3) .achievement-icon circle:nth-of-type(1) {
+    fill: #55d99a;
+    stroke: #55d99a;
+}
+.highlights-grid article:nth-child(3) .achievement-icon circle:nth-of-type(2) {
+    fill: #55baff;
+    stroke: #55baff;
+}
+.highlights-grid article:nth-child(3) .achievement-icon circle:nth-of-type(3) {
+    fill: #ffc45c;
+    stroke: #ffc45c;
+}
+.highlights-grid article:nth-child(4) .achievement-icon path:nth-of-type(2) {
+    stroke: #55baff;
+}
+.highlights-grid article:nth-child(5) .achievement-icon circle:nth-of-type(1) {
+    stroke: #55baff;
+}
+.highlights-grid article:nth-child(5) .achievement-icon circle:nth-of-type(2) {
+    fill: rgba(85,186,255,0.28);
+    stroke: #55baff;
+}
+.highlights-grid article:nth-child(6) .achievement-icon circle:nth-of-type(1) {
+    fill: #ff5964;
+    stroke: #ff5964;
+}
+.highlights-grid article:nth-child(6) .achievement-icon circle:nth-of-type(2) {
+    fill: #ffc247;
+    stroke: #ffc247;
+}
+.highlights-grid article:nth-child(6) .achievement-icon circle:nth-of-type(3) {
+    fill: #48d597;
+    stroke: #48d597;
+}
+
+.feature-card {
+    padding: 34px 30px;
+}
+
+.feature-card h3 {
+    margin-bottom: 14px;
+}
+
+.results-section {
+    background: linear-gradient(180deg, #061426, #091c32);
+    border-top: 1px solid rgba(0,217,255,0.12);
+    border-bottom: 1px solid rgba(0,217,255,0.12);
+}
+
+.results-list {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 34px;
+    row-gap: 19px;
+}
+
+.result-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 22px;
+    background: linear-gradient(145deg, #102943, #08182a);
+    border: 1px solid rgba(0,217,255,0.17);
+    border-left: 3px solid var(--cyan);
+    border-radius: 6px;
+}
+
+.result-marker {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+.result-item p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.result-item strong {
+    color: var(--white);
+}
+
+.report-section {
+    background: var(--navy);
+    text-align: center;
+}
+
+.report-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 38px;
+    background: linear-gradient(145deg, #102943, #08182a);
+    border: 1px solid rgba(0,217,255,0.2);
+    border-radius: 8px;
+}
+
+.report-box p {
+    color: var(--muted);
+    margin: 12px 0 24px;
+}
+
+@media(max-width: 600px) {
+    .highlights-grid,
+    .results-list {
+        grid-template-columns: 1fr;
+    }
+    .report-box {
+        padding: 25px 18px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="eyebrow">
+            AUTONOMOUS MOBILITY · SMART URBAN INFRASTRUCTURE
+        </div>
+        <h1>PROJECT <span>HIGHLIGHTS</span></h1>
+        <h2>AUROVIA Engineering Achievements and Simulation Results</h2>
+        <p>
+            An overview of the key capabilities developed in AUROVIA,
+            bringing together Ackermann vehicle control, autonomous
+            navigation, simulated sensors and smart urban infrastructure
+            using ROS 2 and Gazebo.
+        </p>
+    </div>
+</section>
+
+<section class="overview-section" id="achievements">
+    <div class="section-title">
+        <small>PROJECT CONTRIBUTIONS</small>
+        <h2>Key Project Achievements</h2>
+    </div>
+
+    <div class="highlights-grid">
+        <article class="feature-card">
+            <div class="achievement-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<path d="M5 42V18h12v24M17 42V8h14v34M31 42V22h12v20"/>
+<path d="M10 23h3M10 29h3M10 35h3M22 14h4M22 21h4M22 28h4M22 35h4M36 28h3M36 35h3"/>
+</svg>
+</div>
+            <h3>Urban Environment</h3>
+            <p>Eight interconnected zones and diverse road infrastructure.</p>
+        </article>
+        <article class="feature-card">
+            <div class="achievement-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<circle cx="24" cy="24" r="18"/>
+<circle cx="24" cy="24" r="4"/>
+<path d="M10 16l10 6M38 16l-10 6M24 28v13M8 24h5M35 24h5"/>
+</svg>
+</div>
+            <h3>Vehicle Control</h3>
+            <p>Manual and autonomous Ackermann vehicle operation.</p>
+        </article>
+        <article class="feature-card">
+            <div class="achievement-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<path d="M8 37l9-25 13 22 10-24"/>
+<circle cx="8" cy="37" r="3"/>
+<circle cx="17" cy="12" r="3"/>
+<circle cx="30" cy="34" r="3"/>
+<path d="M34 10l6-1-1 6"/>
+</svg>
+</div>
+            <h3>Autonomous Navigation</h3>
+            <p>Destination-based movement using odometry feedback.</p>
+        </article>
+        <article class="feature-card">
+            <div class="achievement-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<path d="M24 40a17 17 0 1 1 17-17"/>
+<path d="M24 32a9 9 0 1 1 9-9"/>
+<path d="M24 23l14-14"/>
+<circle cx="24" cy="23" r="2"/>
+<path d="M35 8h4v4"/>
+</svg>
+</div>
+            <h3>LiDAR and Obstacle Avoidance</h3>
+            <p>Directional obstacle assessment and avoidance functionality.</p>
+        </article>
+        <article class="feature-card">
+            <div class="achievement-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<path d="M6 16h9l4-5h10l4 5h9v24H6z"/>
+<circle cx="24" cy="27" r="9"/>
+<circle cx="24" cy="27" r="4"/>
+<path d="M36 21h1"/>
+</svg>
+</div>
+            <h3>Camera and Sensor Integration</h3>
+            <p>Live camera imagery, IMU and GNSS interfaces.</p>
+        </article>
+        <article class="feature-card">
+            <div class="achievement-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<rect x="13" y="5" width="22" height="38" rx="5"/>
+<circle cx="24" cy="14" r="4"/>
+<circle cx="24" cy="24" r="4"/>
+<circle cx="24" cy="34" r="4"/>
+<path d="M24 43v3M19 46h10"/>
+</svg>
+</div>
+            <h3>Smart Infrastructure</h3>
+            <p>Traffic signals, day/night lighting and automatic headlamps.</p>
+        </article>
+    </div>
+</section>
+
+<section class="results-section" id="results">
+    <div class="section-title">
+        <small>DEVELOPMENT OUTCOMES</small>
+        <h2>Simulation Results</h2>
+    </div>
+
+    <div class="results-list">
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Vehicle operation:</strong> Manual driving, steering and braking demonstrated.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Autonomous navigation:</strong> Destination-based autonomous movement using odometry feedback.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Camera:</strong> Real-time camera images available as the vehicle moves through the simulated environment.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>LiDAR:</strong> Distance processing, directional monitoring and dashboard proximity display.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Obstacle avoidance:</strong> Obstacle assessment and avoidance functionality implemented in the navigation system.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Traffic lights:</strong> Traffic-signal states, navigation interfaces and vehicle-response logic integrated.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Dashboard:</strong> Vehicle state, camera imagery and selected sensor information presented through a unified interface.</p></div>
+        <div class="result-item"><span class="result-marker">◆</span><p><strong>Environmental systems:</strong> Day/night transitions, street lighting and automatic headlamp operation.</p></div>
+    </div>
+</section>
+
+<section class="report-section">
+    <div class="report-box">
+        <h2>Explore the Complete Engineering Report</h2>
+        <p>Read the full technical documentation, engineering approach, system architecture and project development.</p>
+        <a href="AUROVIA_Engineering_Project_Report.pdf"
+           class="btn btn-primary">
+            READ FULL ENGINEERING REPORT
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>
+        <strong>AUROVIA</strong><br>
+        Autonomous Vehicle Simulation in a Smart Urban Environment<br>
+        Built with ROS 2 and Gazebo<br><br>
+        © 2026 AUROVIA Engineering Project
+    </p>
+</footer>
+
+</body>
+</html>
